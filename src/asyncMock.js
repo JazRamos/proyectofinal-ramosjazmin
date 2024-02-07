@@ -64,7 +64,7 @@ const products = [
     },
     {
         id: '8',
-        name: 'Lápices de colores Filgo Sigma Color x24u ',
+        name: 'Lápices de colores Filgo Sigma Color x24u',
         price: 3025,
         category: 'lapices',
         img: 'https://res.cloudinary.com/diklj3m6q/image/upload/v1705344747/lapiz2_q7931q.png',
