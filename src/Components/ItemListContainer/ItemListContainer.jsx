@@ -2,44 +2,33 @@ import { useEffect, useState } from "react";
 import { ItemList } from "../ItemList/ItemList";
 import { useParams } from "react-router-dom";
 import { db } from "../../services/firebase/firebaseConfig";
-import { getDocs, collection } from "firebase/firestore";
+import { getDocs, collection, query, where } from "firebase/firestore";
 
 export const ItemListContainer = ({ greeting }) => {
   const { category } = useParams()
   const [products, setProducts] = useState([])
-  const [isLoading, setIsLoading] = useState(true)
+  const [isLoading, setLoading] = useState(true)
+
   useEffect(() => {
-    setIsLoading(true);
-    /*    getProducts()
-         .then((resp) => {
-           if (category) {
-             const productsFilter = resp.filter(product => product.category === category);
-             setProducts(productsFilter);
-             setIsLoading(false);
-           } else {
-             setProducts(resp);
-             setIsLoading(false);
-           }
-         })
-       .catch((error) => console.log(error)); 
-    */
-    const prodCollection = collection(db, 'products')
+    setLoading(true);
+    const prodCollection = category
+      ? query(collection(db, 'products'), where('category', '==', category))
+      : collection(db, 'products')
 
     getDocs(prodCollection)
       .then(querySnapshot => {
-        const productsAdapted = querySnapshot.docs.map(doc => {
-       const fields = doc.data() 
-        return { id: doc.id, ...fields }
+        const prodList = querySnapshot.docs.map(doc => {
+          const fields = doc.data()
+          return { id: doc.id, ...fields }
+        })
+        setProducts(prodList)
       })
 
-        setProducts(productsAdapted)
-
+      .catch((error) => alert('error'))
+      .finally(() => {
+        setLoading(false)
       })
-      .catch((error) => console.log(error)); 
-
- 
-
-  }, [category]);
+  }, [category])
 
   return (
     <>

@@ -1,6 +1,7 @@
 import { CartWidget } from '../CartWidget/CartWidget';
 import { Link } from "react-router-dom";
 
+
 export const NavBar = () => {
   return (
     <nav className="navbar navbar-expand-lg bg-light">
@@ -27,7 +28,7 @@ export const NavBar = () => {
       </div>
       <div className=" d-flex ">
         <CartWidget />
-        <p className="badge border border-light rounded-circle bg-danger p-1">2</p>
+       
       </div>
     </nav>
   );
