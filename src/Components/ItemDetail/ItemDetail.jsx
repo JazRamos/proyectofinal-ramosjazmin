@@ -1,9 +1,13 @@
 import { ItemCount } from "../ItemCount/ItemCount";
-import { useCart } from "../../Context/CartContext";
+import { useContext } from "react";
+import { CartContext } from "../../Context/CartContext";
 
 export const ItemDetail = ({ description, price, stock, name, img }) => {
+  
     const onAdd = (items) => {
+       
         alert(`Se agregó ${items} ${name} al carrito`)
+
     }
 
     return (
@@ -19,4 +23,5 @@ export const ItemDetail = ({ description, price, stock, name, img }) => {
             </div>
         </div>
     )
+
 }
