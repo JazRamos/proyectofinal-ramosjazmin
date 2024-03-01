@@ -6,7 +6,6 @@ Ecommerce creado con React + Vite
 
 Para su construcción se utilizó:
 - [Visual Studio Code] 
-- [create-react-app] 
 - [Vite] 
 - [node.js] 
 - [Firebase] 
@@ -16,7 +15,6 @@ Para su construcción se utilizó:
 
 [Vite]: <https://vitejs.dev/guide/>
 [node.js]: <http://nodejs.org>
-[create-react-app]: <https://create-react-app.dev/>
 [Firebase]: <https://firebase.google.com/?hl=es-419>
 [react-icons]: <https://react-icons.github.io/react-icons/>
 [Visual Studio Code]: <https://code.visualstudio.com/download>
