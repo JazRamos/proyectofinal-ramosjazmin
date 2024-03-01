@@ -1,4 +1,5 @@
 import { ItemCount } from "../ItemCount/ItemCount";
+import { useCart } from "../../Context/CartContext";
 
 export const ItemDetail = ({ description, price, stock, name, img }) => {
     const onAdd = (items) => {

@@ -1,8 +1,8 @@
 import React, { useContext } from "react";
-import { CartContext } from "../../Context/CartContext";
+import { CartContextProvider } from "../../Context/CartContext";
 
 const CartView = () => {
-    const { cart, total, removeProduct } = useContext(CartContext);
+    const { cart, total, removeProduct } = useContext(CartContextProvider);
 
     return (
         <>
