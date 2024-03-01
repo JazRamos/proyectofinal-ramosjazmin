@@ -28,4 +28,4 @@ const getProducts = (category) => {
         .finally(() => {
             setLoading(false)
         })
-}, [category])
+}
