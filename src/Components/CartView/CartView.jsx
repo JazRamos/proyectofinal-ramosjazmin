@@ -1,13 +1,12 @@
 import React, { useContext } from "react";
 import { CartContext} from "../../Context/CartContext";
-
+import { Link } from "react-router-dom";
 const CartView = () => {
     const { cart, total, removeProduct } = useContext(CartContext);
 
     return (
         <>
             <div>
-                <h1>CART</h1>
                 <section>
                     {cart.map((item) => (
                         <div key={item.id} style={{ width: '100%', display: "flex", justifyContent: 'space-around' }}>
@@ -20,11 +19,11 @@ const CartView = () => {
                     ))}
                 </section>
                 <section>
-                    <h1>Total ${total}</h1>
+                    <h5>Total ${total}</h5>
                 </section>
 
             </div>
-
+            <div><Link to='/checkout'></Link></div>
 
         </>
     )
