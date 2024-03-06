@@ -5,9 +5,9 @@ export const ItemCount = ({ stock, initial = 1, onAdd }) => {
 
     const increment = () => {
         if (count < stock) {
-            return setCount(count );
+            return setCount(count + 1 );
         }
-        setCount(count + 1);
+        setCount(count );
     };
 
     const decrement = () => {

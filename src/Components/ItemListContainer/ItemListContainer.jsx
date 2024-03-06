@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import { db } from "../../services/firebase/firebaseConfig";
 import { getDocs, collection, query, where } from "firebase/firestore";
 
+
 export const ItemListContainer = ({ greeting }) => {
   const { category } = useParams()
   const [products, setProducts] = useState([])
@@ -38,6 +39,7 @@ export const ItemListContainer = ({ greeting }) => {
           <div className="spinner-border" role="status">
           </div>
         </div> </div> : <ItemList products={products} />}
+     
     </>
   );
 };

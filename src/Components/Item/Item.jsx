@@ -12,7 +12,9 @@ export const Item = ({ id, name, img}) => {
                         </Link>
                     </div>
                 </div>
+           
             </div>
+           
        
-    );
+    ); 
 };

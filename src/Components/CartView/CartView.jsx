@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { useCart} from "../../Context/CartContext";
+import { useCart } from "../../Context/CartContext";
 import { Link } from "react-router-dom";
 const CartView = () => {
     const { cart, total, removeProduct } = useCart();
@@ -9,11 +9,11 @@ const CartView = () => {
             <div>
                 <section>
                     {cart.map((item) => (
-                        <div key={item.id} style={{ width: '100%', display: "flex", justifyContent: 'space-around' }}>
-                            <h3>{item.name}</h3>
-                            <h4>Precio Unitario: ${item.price}</h4>
-                            <h4>Cantidad: {item.quantity}</h4>
-                            <h4>Subtotal: ${item.subTotal}</h4>
+                        <div key={item.id} style={{ width: '50%', display: "flex" }}>
+                            <h5>{item.name}</h5>
+                            <p className="fs-6">Precio Unitario: ${item.price}</p>
+                            <p className="fs-6">Cantidad: {item.quantity}</p>
+                            <p className="fs-6">Subtotal: ${item.subTotal}</p>
                             <button onClick={() => removeProduct(item.id)}>Remover</button>
                         </div>
                     ))}
@@ -21,9 +21,10 @@ const CartView = () => {
                 <section>
                     <h5>Total ${total}</h5>
                 </section>
-
+                <div><Link to='/checkout'>
+                    <button className="btn btn-outline-dark mx-2">Checkout</button></Link></div>
             </div>
-            <div><Link to='/checkout'></Link></div>
+            
 
         </>
     )

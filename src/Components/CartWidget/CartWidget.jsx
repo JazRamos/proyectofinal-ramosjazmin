@@ -13,9 +13,9 @@ export const CartWidget = () => {
                     {totalQuantity}
                 </button>
             </div>
-            <div style={{ width: 100 }}>
+            <div >
                 <div className="collapse collapse-horizontal" id="collapseWidthExample">
-                    <div className="card card-body" style={{ width: 100 }}>
+                    <div className="card card-body" >
                         <CartView />
                     </div>
                 </div>

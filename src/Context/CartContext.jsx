@@ -6,8 +6,22 @@ export const CartContextProvider = ({ children }) => {
     const [cart, setCart] = useState([]);
     const [total, setTotal] = useState(0);
     const [totalProducts, setTotalProducts] = useState(0);
-    const addProductCart = (product, quantity) => {
-        const index = cart.findIndex((item) => item.id === product.id);
+    const addToCart = (item) => {
+        const isItemInCart = cart.find((cartItem) => cartItem.id === item.id);
+        if (isItemInCart) {
+            setCart(
+                cart.map((cartItem) => 
+                    cartItem.id === item.id
+                        ? { ...cartItem, quantity: cartItem.quantity + 1 }
+                        : cartItem 
+                )
+            );
+        } else {
+            setCart([...cart, { ...item, quantity: 1 }]); 
+        }
+    };
+    /* const addProductCart = (item) => {
+        const isItemInCart = cart.findIndex((item) => item.id === product.id);
         if (index == -1) {
             const newProduct = {
                 ...product,
@@ -21,8 +35,9 @@ export const CartContextProvider = ({ children }) => {
             cartCopy[index].subTotal = cartCopy[index].price * cartCopy[index].quantity;
             setCart(cartCopy);
         }
-    };
-    const removeProduct = (id) => {
+    }; */
+    const removeProduct = (item) => {
+        const isItemInCart = cart.find((cartItem) => cartItem.id === item.id);
         const productsFilter = cart.filter(product => product.id !== id);
         setCart(productsFilter);
     }
@@ -47,7 +62,7 @@ export const CartContextProvider = ({ children }) => {
         cart,
         total,
         totalProducts,
-        addProductCart,
+        addToCart,
         removeProduct
     };
 

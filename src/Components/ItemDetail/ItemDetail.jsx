@@ -4,13 +4,13 @@ import { CartContext } from "../../Context/CartContext";
 import { useCart } from "../../Context/CartContext";
 export const ItemDetail = ({ id, description, price, stock, name, img }) => {
     const [quantity, setQuantity] = useState(0)
-    const { addProductCart } = useCart() 
+    const { addToCart } = useCart() 
     const honAdd = (quantity) => {
         const objProdAdd ={
             id, name, price, quantity
         }
         alert(`Se agregó ${quantity} ${name} al carrito`)
-        addProductCart(objProdAdd)
+        addToCart(objProdAdd)
         setQuantity(quantity)
     }
 
