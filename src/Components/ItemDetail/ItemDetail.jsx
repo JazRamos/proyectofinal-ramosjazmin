@@ -1,13 +1,17 @@
 import { ItemCount } from "../ItemCount/ItemCount";
-import { useContext } from "react";
+import { useState } from "react";
 import { CartContext } from "../../Context/CartContext";
-
-export const ItemDetail = ({ description, price, stock, name, img }) => {
-  
-    const onAdd = (items) => {
-       
-        alert(`Se agregó ${items} ${name} al carrito`)
-
+import { useCart } from "../../Context/CartContext";
+export const ItemDetail = ({ id, description, price, stock, name, img }) => {
+    const [quantity, setQuantity] = useState(0)
+    const { addProductCart } = useCart() 
+    const honAdd = (quantity) => {
+        const objProdAdd ={
+            id, name, price, quantity
+        }
+        alert(`Se agregó ${quantity} ${name} al carrito`)
+        addProductCart(objProdAdd)
+        setQuantity(quantity)
     }
 
     return (
@@ -18,7 +22,7 @@ export const ItemDetail = ({ description, price, stock, name, img }) => {
                     <img src={img} className="card-img-top w-100" alt="" />
                     <p className="card-text"> {description} </p>
                     <p>Precio: {price} </p>
-                    <ItemCount stock={stock} onAdd={onAdd} />
+                    <ItemCount stock={stock} onAdd={honAdd} />
                 </div>
             </div>
         </div>

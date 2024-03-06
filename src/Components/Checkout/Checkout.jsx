@@ -1,3 +1,3 @@
-export const Context = () =>{
+export const Checkout = () =>{
 
 }

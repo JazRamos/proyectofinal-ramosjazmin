@@ -1,8 +1,8 @@
 import React, { useContext } from "react";
-import { CartContext} from "../../Context/CartContext";
+import { useCart} from "../../Context/CartContext";
 import { Link } from "react-router-dom";
 const CartView = () => {
-    const { cart, total, removeProduct } = useContext(CartContext);
+    const { cart, total, removeProduct } = useCart();
 
     return (
         <>

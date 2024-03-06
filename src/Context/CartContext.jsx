@@ -23,7 +23,7 @@ export const CartContextProvider = ({ children }) => {
         }
     };
     const removeProduct = (id) => {
-        const productsFilter = cartItems.filter(product => product.id !== id);
+        const productsFilter = cart.filter(product => product.id !== id);
         setCart(productsFilter);
     }
     const handleTotal = () => {
